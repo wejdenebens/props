@@ -4,39 +4,38 @@ import PropTypes from 'prop-types';
 const Profile = props => {
             return (
             <div>
+              {props.handleName()}
                 <p>Full Name:
-                {props.name}
+                {props.personne.fullName}
                 </p>
                 <p>Bio:
-                {props.bio}
+                {props.personne.bio}
                 </p>
                 <p>Profession:
-                {props.profession}
+                {props.personne.profession}
                 </p>
+                <div>
+        {props.children}
+      </div>
             </div>
                     );
             };
 
-const image = (props) => {
-    return (
-      <div>
-        {props.children}
-      </div>
-    )
-   }
-
-  function handleName (props) {
-    return <p>Name of profile user{props.name}</p> 
-  };
 
 
-  ReactHeader.defaultProps = {
+
+ Profile.defaultProps = {
+   personne : {
+        fullName: "Wejdene",
+        bio: "Salut",
+        profession: "IT"
+   },
    
   };
 
 
   Profile.propTypes = {
-    name: PropTypes.string,
+    fullName: PropTypes.string,
     bio:PropTypes.string,
     profession:PropTypes.string
   }
